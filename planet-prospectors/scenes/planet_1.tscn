@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7nvrwodb08oj"]
 
 [ext_resource type="PackedScene" uid="uid://dsxv2swex35t6" path="res://scenes/player.tscn" id="1_6r0f1"]
+[ext_resource type="Script" uid="uid://6s6blwv8vkgg" path="res://scripts/planet_1.gd" id="1_bof2y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6r0f1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,6 +24,7 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="planet1" type="Node3D" unique_id=1643603378]
+script = ExtResource("1_bof2y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1096067317]
 environment = SubResource("Environment_pxgab")
