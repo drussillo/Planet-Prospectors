@@ -10,9 +10,10 @@ func _ready() -> void:
 	
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
-		pass
+		rotate_y(-event.relative.x * MOUSE_SENS)
+		$Head.rotate_x(-event.relative.y * MOUSE_SENS)
+		$Head.rotation.x = clamp($Head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
-	
 
 func _physics_process(delta: float) -> void:
 	# Quit
