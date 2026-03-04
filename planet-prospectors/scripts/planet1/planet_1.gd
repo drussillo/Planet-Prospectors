@@ -2,7 +2,7 @@ extends Node3D
 
 const GRAVITY = 9.8
 const CHUNK_SMALL_SIZE = 16 # at least 2 for some reason
-const CHUNK_BIG_SIZE = 64w awsdw
+const CHUNK_BIG_SIZE = 64
 const CHUNK_BIG_AMOUNT = 5
 const PLANET_SIZE = 2 * CHUNK_BIG_SIZE * CHUNK_BIG_AMOUNT
 
