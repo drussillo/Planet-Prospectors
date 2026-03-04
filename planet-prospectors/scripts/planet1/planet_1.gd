@@ -34,9 +34,9 @@ func _generate_chunks(pos_x, pos_z, width, length) -> void:
 	
 	var vert_split = vert_split_chance >= rng.randi_range(1, 100)
 	var hor_split = hor_split_chance >= rng.randi_range(1, 100)
+	print(vert_split, hor_split)
 
 	if !vert_split && !hor_split || width < CHUNK_SMALL_SIZE || length < CHUNK_SMALL_SIZE:
-		print("no split")
 		var chunk_instance = CHUNK_SCENE.instantiate()
 		chunk_instance.set_chunk(pos_x, pos_z, width, length)
 		add_child(chunk_instance)
