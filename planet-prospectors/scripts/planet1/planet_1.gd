@@ -3,11 +3,13 @@ extends Node3D
 const GRAVITY = 9.8
 const CHUNK_SMALL_SIZE = 16 # at least 2 for some reason
 const CHUNK_BIG_SIZE = 64
-const CHUNK_BIG_AMOUNT = 5
-const PLANET_SIZE = 2 * CHUNK_BIG_SIZE * CHUNK_BIG_AMOUNT
+const CHUNK_BIG_AMOUNT = 5 # total is square of this value
+const OILCHUNK_PERC = 5.0
 
+const PLANET_SIZE = 2 * CHUNK_BIG_SIZE * CHUNK_BIG_AMOUNT
 const CHUNK_SCENE = preload("res://scenes/planet1/chunk.tscn")
 var rng = RandomNumberGenerator.new()
+var oilchunk_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,11 +36,12 @@ func _generate_chunks(pos_x, pos_z, width, length) -> void:
 	
 	var vert_split = vert_split_chance >= rng.randi_range(1, 100)
 	var hor_split = hor_split_chance >= rng.randi_range(1, 100)
-	print(vert_split, hor_split)
 
 	if !vert_split && !hor_split || width < CHUNK_SMALL_SIZE || length < CHUNK_SMALL_SIZE:
 		var chunk_instance = CHUNK_SCENE.instantiate()
-		chunk_instance.set_chunk(pos_x, pos_z, width, length)
+		var oilchunk:bool = randf() < (OILCHUNK_PERC / 100)
+		if oilchunk: oilchunk_count += 1
+		chunk_instance.set_chunk(pos_x, pos_z, width, length, oilchunk)
 		add_child(chunk_instance)
 		return
 
@@ -56,4 +59,11 @@ func _generate_chunks(pos_x, pos_z, width, length) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for chunk in get_tree().get_nodes_in_group("chunks"):
+		#print(oilchunk.global_position, oilchunk.chunk_width, oilchunk.chunk_length)
+		if ($player.global_position.x > chunk.global_position.x - chunk.chunk_width &&
+			$player.global_position.x < chunk.global_position.x + chunk.chunk_width &&
+			$player.global_position.z > chunk.global_position.z - chunk.chunk_length &&
+			$player.global_position.z < chunk.global_position.z + chunk.chunk_length):
+			$player.current_chunk = chunk
 	pass
