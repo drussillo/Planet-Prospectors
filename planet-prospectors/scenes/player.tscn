@@ -2,8 +2,21 @@
 
 [ext_resource type="Script" uid="uid://u2n20ou62y4e" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ddy4lwod8fyf" path="res://scripts/playeraim.gd" id="2_g2els"]
+[ext_resource type="Shader" uid="uid://kcbp5xs2ipte" path="res://Shader/new_shader.gdshader" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhqgy"]
+render_priority = 0
+shader = ExtResource("2_qhqgy")
+shader_parameter/pixel_size = 3.0
+shader_parameter/levels = 57.0
+shader_parameter/gamma = Vector2(0.125, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_g2els"]
+material = SubResource("ShaderMaterial_qhqgy")
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody3D" unique_id=1341974548]
 script = ExtResource("1_4flbx")
@@ -17,6 +30,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1528314665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49289918, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D" unique_id=982479519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027, 0.0071008205, -0.560572)
+mesh = SubResource("QuadMesh_g2els")
 
 [node name="PlayerAim" type="RayCast3D" parent="Head" unique_id=1442054577]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
