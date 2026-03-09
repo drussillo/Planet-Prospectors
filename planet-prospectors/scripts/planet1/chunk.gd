@@ -6,7 +6,8 @@ var chunk_height
 var mat
 var oilchunk
 var oil_amount:int = 0
-const mesh_list=[preload("res://assets/planet1/chunks/mntn1.obj"),preload("res://assets/planet1/chunks/mntn2.obj"),preload("res://assets/planet1/chunks/mntn3.obj")]
+const mesh_list=[preload("res://assets/planet1/chunks/mntn1.obj"),preload("res://assets/planet1/chunks/mntn2.obj"), preload("res://assets/planet1/chunks/mntn3.obj"),preload("res://assets/planet1/chunks/hole1.obj")]
+
 
 func get_oil_amount() -> int:
 	return oil_amount
