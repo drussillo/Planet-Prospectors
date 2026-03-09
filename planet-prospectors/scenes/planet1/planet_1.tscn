@@ -1,27 +1,9 @@
 [gd_scene format=3 uid="uid://c7nvrwodb08oj"]
 
 [ext_resource type="Script" uid="uid://6s6blwv8vkgg" path="res://scripts/planet1/planet_1.gd" id="1_1n7i6"]
-[ext_resource type="Texture2D" uid="uid://odi2i30w4640" path="res://assets/planet1/sky/NightSkyHDRI003_1K_HDR.exr" id="2_2gj5h"]
 [ext_resource type="PackedScene" uid="uid://dsxv2swex35t6" path="res://scenes/player.tscn" id="3_5k6p0"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ajad7"]
-panorama = ExtResource("2_2gj5h")
-
-[sub_resource type="Sky" id="Sky_nbsgq"]
-sky_material = SubResource("PanoramaSkyMaterial_ajad7")
-
-[sub_resource type="Environment" id="Environment_yvh5o"]
-background_mode = 2
-sky = SubResource("Sky_nbsgq")
-fog_light_color = Color(0.9258509, 0.31698123, 3.85046e-07, 1)
-fog_light_energy = 0.01
-fog_density = 0.0001
-fog_sky_affect = 0.755
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.25
-volumetric_fog_albedo = Color(1, 0.47843137, 0, 1)
-volumetric_fog_emission = Color(0.24704048, 0.054505043, 0, 1)
-volumetric_fog_length = 2.0
+[sub_resource type="Environment" id="Environment_ya2tv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ujfxn"]
 
@@ -34,7 +16,7 @@ light_color = Color(0.6595104, 0.64157003, 0.5424524, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=362877873]
-environment = SubResource("Environment_yvh5o")
+environment = SubResource("Environment_ya2tv")
 
 [node name="player" parent="." unique_id=1341974548 instance=ExtResource("3_5k6p0")]
 
