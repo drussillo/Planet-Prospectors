@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ne4m5v0bgcye"]
 
 [ext_resource type="Script" uid="uid://c2aidmk2hrbgw" path="res://scripts/planet1/chunk.gd" id="1_2vvly"]
-[ext_resource type="ArrayMesh" uid="uid://s22k0agpddt0" path="res://assets/planet1/chunks/mntn2.obj" id="2_6tj4i"]
+[ext_resource type="ArrayMesh" uid="uid://cxs3gjej0snfl" path="res://assets/planet1/chunks/mntn2.obj" id="2_6tj4i"]
 [ext_resource type="Material" uid="uid://d2lieek7gj04f" path="res://assets/planet1/chunks/sand.material" id="3_bgrpy"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6tj4i"]
