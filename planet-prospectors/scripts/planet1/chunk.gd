@@ -6,6 +6,7 @@ var chunk_height
 var mat
 var oilchunk
 var oil_amount:int = 0
+const mesh_list=[preload("res://assets/planet1/chunks/mntn1.obj"),preload("res://assets/planet1/chunks/mntn2.obj"),preload("res://assets/planet1/chunks/mntn3.obj")]
 
 func get_oil_amount() -> int:
 	return oil_amount
@@ -13,6 +14,7 @@ func get_oil_amount() -> int:
 func set_chunk(x, z, width, length, is_oilchunk) -> void:
 	mat = $floor.get_surface_override_material(0).duplicate()
 	$floor.set_surface_override_material(0, mat)
+	$floor.mesh = mesh_list.pick_random()
 	chunk_width = width
 	chunk_length = length
 	chunk_height = randi_range(1, 3)
