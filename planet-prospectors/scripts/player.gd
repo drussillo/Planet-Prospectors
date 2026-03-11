@@ -15,6 +15,7 @@ var head_bob_speed = 0.01
 
 var current_chunk
 var current_oil = 0
+var drilling = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -64,22 +65,27 @@ func _physics_process(delta: float) -> void:
 			$Head.position.y = global_position.y + head_distance
 	
 	if Input.is_action_just_pressed("interact"):
-		#var drill = DRILL_SCENE.instantiate()
-		#drill.position = position
-		#add_sibling(drill)
-		pass
-		# TODO: place drill
-		#print(get_node("Head/PlayerAim").target_position)
+		if !drilling:
+			var drill = DRILL_SCENE.instantiate()
+			drill.position = global_transform.origin - global_transform.basis.z.normalized() * 5
+			drill.position.y = -10
+			add_sibling(drill)
+			drilling = true
 	
-	if current_chunk != null:
-		if Input.is_action_pressed("interact") && current_chunk.oil_amount > 0:
+	if drilling:
+		if current_chunk.oil_amount > 0:
 			current_chunk.oil_amount -= 1;
 			current_oil += 1;
-		# give player location to scanner
-		$Head/Scanner.playerchunk = current_chunk
+	else:
+		drilling = false
+	print(current_chunk.oil_amount, "  ", current_oil)
+
+	# give player location to scanner
+	$Head/Scanner.playerchunk = current_chunk
 	
-		# print(current_chunk.oil_amount, "  ", current_oil)
+	# print(current_chunk.oil_amount, "  ", current_oil)
 	oil_changed.emit(current_oil, 0)
 	
 
+	
 	move_and_slide()
