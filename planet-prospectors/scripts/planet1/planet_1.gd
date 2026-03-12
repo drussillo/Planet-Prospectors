@@ -28,6 +28,7 @@ func _ready() -> void:
 				CHUNK_BIG_SIZE,
 				CHUNK_BIG_SIZE
 			)
+	$player.current_chunk = get_tree().get_first_node_in_group("chunks")
 
 
 func _generate_chunks(pos_x, pos_z, width, length) -> void:
