@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b44p6q4yxn62w"]
 
 [ext_resource type="Script" uid="uid://coycmgnus8va7" path="res://scripts/player_hud.gd" id="1_mlvnn"]
+[ext_resource type="FontFile" uid="uid://cig7en63x3xhk" path="res://assets/misc/SpeedyRegular-7BLoE.ttf" id="2_iraov"]
 
 [node name="playerHUD" type="Node2D" unique_id=1891488524]
 script = ExtResource("1_mlvnn")
@@ -10,4 +11,5 @@ offset_left = 37.0
 offset_top = 28.0
 offset_right = 330.0
 offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_iraov")
 text = "OIL COUNTER"

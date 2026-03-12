@@ -5,7 +5,7 @@ func _ready() -> void:
 	pass
 
 func update_oilcount(current, objective) -> void:
-	$oilcount.text = str("OIL: ", current, " / ", objective)
+	$oilcount.text = str("OIL  ", current, " / ", objective)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
