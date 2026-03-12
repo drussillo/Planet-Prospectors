@@ -26,7 +26,8 @@ func set_chunk(x, z, width, length, is_oilchunk) -> void:
 	if oilchunk:
 		add_to_group("oilchunks")
 		# TODO: balancing oil amount based on chunk (mesh?)
-		oil_amount = 1.0 / (chunk_width + chunk_length) * 10000
+		oil_amount = 1.0 / (chunk_width + chunk_length) * 25000
+		oil_amount -= oil_amount % 100
 		mat.albedo_color = Color(0, 0, 0) # debug
 	
 	#mat.albedo_color = Color(randf(), randf() ,randf()) # debug
