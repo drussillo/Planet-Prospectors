@@ -16,12 +16,12 @@ var head_bob_speed = 0.01
 var current_chunk
 var current_oil = 0
 var drilling = false
+var drill
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# TODO: spawn on surface / spawn on rocket, then land
-	#position.y = 1000
-	#velocity.y = -500
+	global_position.y = 5
 	
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
@@ -66,19 +66,30 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		if !drilling:
-			var drill = DRILL_SCENE.instantiate()
-			drill.position = global_transform.origin - global_transform.basis.z.normalized() * 5
+			drill = DRILL_SCENE.instantiate()
+			drill.position = global_transform.origin - global_transform.basis.z.normalized() * 2
 			drill.position.y = -10
 			add_sibling(drill)
+			drill.chunk = current_chunk
 			drilling = true
+			# TODO: play drilling sound
+		elif global_position.distance_to(drill.global_position) < 5:
+			#var drill = get_tree().get_first_node_in_group("drill")
+			drill.queue_free()
+			drilling = false
+			# TODO: play remove drill sound
+		else:
+			# TODO: play drill too far sound / hint
+			pass
 	
 	if drilling:
-		if current_chunk.oil_amount > 0:
-			current_chunk.oil_amount -= 1;
+		if drill.chunk.oil_amount > 0:
+			drill.chunk.oil_amount -= 1;
 			current_oil += 1;
 	else:
-		drilling = false
-	print(current_chunk.oil_amount, "  ", current_oil)
+		pass
+		#drilling = false
+	print(drill.chunk.oil_amount, "  ", current_oil)
 
 	# give player location to scanner
 	$Head/Scanner.playerchunk = current_chunk
@@ -86,6 +97,5 @@ func _physics_process(delta: float) -> void:
 	# print(current_chunk.oil_amount, "  ", current_oil)
 	oil_changed.emit(current_oil, 0)
 	
-
 	
 	move_and_slide()
