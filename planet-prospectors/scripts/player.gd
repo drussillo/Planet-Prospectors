@@ -17,7 +17,7 @@ var current_chunk
 var current_oil = 0
 var drilling = false
 var drill
-const OBJECTIVE = 5
+const OBJECTIVE = 1000
 var soundstopped = false
 
 func _ready() -> void:
@@ -109,5 +109,8 @@ func _physics_process(delta: float) -> void:
 		drill.velocityY += 0.00001
 		drill.velocityY *= 1.05
 		# TODO: add winstate
-	
+
+	print(current_chunk.oil_amount, "  ", current_oil)
+	oil_changed.emit(current_oil, OBJECTIVE)
+
 	move_and_slide()
