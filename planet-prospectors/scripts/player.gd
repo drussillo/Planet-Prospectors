@@ -18,6 +18,7 @@ var current_oil = 0
 var drilling = false
 var drill
 const OBJECTIVE = 5
+var soundstopped = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -67,30 +68,35 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		if !drilling:
+			soundstopped = false
 			drill = DRILL_SCENE.instantiate()
 			drill.position = global_transform.origin - global_transform.basis.z.normalized() * 2
 			drill.position.y = -10
 			add_sibling(drill)
 			drill.chunk = current_chunk
 			drilling = true
-			# TODO: play drilling sound
 		elif global_position.distance_to(drill.global_position) < 5:
-			#var drill = get_tree().get_first_node_in_group("drill")
+			drill.get_node("placesound").play()
+			await drill.get_node("placesound").finished
 			drill.queue_free()
 			drilling = false
-			# TODO: play remove drill sound
 		else:
 			# TODO: play drill too far sound / hint
 			pass
 
 	if drilling:
 		if drill.chunk.oil_amount > 0:
+			if !drill.get_node("drillingsound").is_playing():
+				drill.get_node("drillingsound").play()
 			drill.chunk.oil_amount -= 1;
 			current_oil += 1;
-	else:
-		pass
-		#drilling = false
-	print(drill.chunk.oil_amount, "  ", current_oil)
+		else:
+			drill.get_node("drillingsound").stop()
+			if !drill.get_node("stopsound").is_playing() and !soundstopped:
+				drill.get_node("stopsound").play()
+				soundstopped = true
+			#drilling = false
+		print(drill.chunk.oil_amount, "  ", current_oil)
 
 	# give player location to scanner
 	$Head/Scanner.playerchunk = current_chunk
@@ -100,7 +106,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if current_oil > OBJECTIVE && drilling && drill.chunk.oil_amount == 0:
-		drill.velocityY += 0.01
+		drill.velocityY += 0.00001
 		drill.velocityY *= 1.05
 		# TODO: add winstate
 	
