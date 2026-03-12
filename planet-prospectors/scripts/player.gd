@@ -9,6 +9,7 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.001
 
 const DRILL_SCENE = preload("res://scenes/drill.tscn")
+const DRILL_DISTANCE = 3
 
 var head_bob_speed = 0.01
 @onready var head_distance = $Head.global_position.y - global_position.y
@@ -70,12 +71,12 @@ func _physics_process(delta: float) -> void:
 		if !drilling:
 			soundstopped = false
 			drill = DRILL_SCENE.instantiate()
-			drill.position = global_transform.origin - global_transform.basis.z.normalized() * 2
+			drill.position = global_transform.origin - global_transform.basis.z.normalized() * DRILL_DISTANCE
 			drill.position.y = -10
 			add_sibling(drill)
 			drill.chunk = current_chunk
 			drilling = true
-		elif global_position.distance_to(drill.global_position) < 5:
+		elif global_position.distance_to(drill.global_position) < DRILL_DISTANCE*2:
 			drill.get_node("placesound").play()
 			await drill.get_node("placesound").finished
 			drill.queue_free()
