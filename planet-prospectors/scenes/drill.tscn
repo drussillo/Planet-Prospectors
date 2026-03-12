@@ -6,8 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://b75iyvdm2yxht" path="res://assets/objects/freesound_community-drill_sound-77500_stop.wav" id="4_nx8ti"]
 [ext_resource type="AudioStream" uid="uid://cqipnvhuqnd87" path="res://assets/objects/freesound_community-drill_sound-77500_place.wav" id="5_cljqy"]
 [ext_resource type="PackedScene" uid="uid://d1ed3o25qaano" path="res://assets/objects/Goddard's_Rocket.glb" id="6_apcyi"]
+[ext_resource type="AudioStream" uid="uid://lb0e52sox7t0" path="res://assets/objects/jci21-rocket-launch-sfx-253937.mp3" id="7_ovkcx"]
 
-[node name="Drill" type="Node3D" unique_id=1771076 groups=["drill"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_apcyi"]
+
+[node name="Drill" type="StaticBody3D" unique_id=460046175 groups=["drill"]]
 script = ExtResource("1_vm0cf")
 
 [node name="drillmodel" parent="." unique_id=117406260 instance=ExtResource("2_e80ml")]
@@ -24,3 +27,12 @@ stream = ExtResource("5_cljqy")
 
 [node name="Goddard\'s_Rocket" parent="." unique_id=183037519 instance=ExtResource("6_apcyi")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=878002007]
+transform = Transform3D(3.05, 0, 0, 0, 4, 0, 0, 0, 2.1, 0, 2, 0)
+shape = SubResource("BoxShape3D_apcyi")
+
+[node name="rocketsound" type="AudioStreamPlayer3D" parent="." unique_id=1302006224]
+stream = ExtResource("7_ovkcx")
+unit_size = 40.0
+max_distance = 1000.0

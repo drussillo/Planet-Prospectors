@@ -18,7 +18,7 @@ var current_chunk
 var current_oil = 0
 var drilling = false
 var drill
-const OBJECTIVE = 1000
+const OBJECTIVE = 100
 var soundstopped = false
 
 func _ready() -> void:
@@ -109,6 +109,8 @@ func _physics_process(delta: float) -> void:
 	if current_oil >= OBJECTIVE && drilling && drill.chunk.oil_amount == 0:
 		drill.velocityY += 0.00001
 		drill.velocityY *= 1.05
+		if !drill.get_node("rocketsound").is_playing():
+			drill.get_node("rocketsound").play()
 		# TODO: add winstate
 
 	print(current_chunk.oil_amount, "  ", current_oil)
