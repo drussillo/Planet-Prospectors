@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://gob4ayb4vr7s"]
+[gd_scene format=3 uid="uid://bqyveicndv7q2"]
 
 [ext_resource type="Script" uid="uid://c34uo1evh8xbm" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cig7en63x3xhk" path="res://assets/misc/SpeedyRegular-7BLoE.ttf" id="2_ekxnf"]
