@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://s5mh6qyyv8r0" path="res://scripts/drill.gd" id="1_vm0cf"]
 [ext_resource type="PackedScene" uid="uid://bribo3h8kc2wu" path="res://assets/objects/core_drill__gurren_lagann.glb" id="2_e80ml"]
+[ext_resource type="AudioStream" uid="uid://dpl7elblwxps4" path="res://assets/objects/freesound_community-drill_sound-77500.mp3" id="3_60uro"]
+[ext_resource type="AudioStream" uid="uid://b75iyvdm2yxht" path="res://assets/objects/freesound_community-drill_sound-77500_stop.wav" id="4_nx8ti"]
+[ext_resource type="AudioStream" uid="uid://cqipnvhuqnd87" path="res://assets/objects/freesound_community-drill_sound-77500_place.wav" id="5_cljqy"]
 
 [node name="Drill" type="Node3D" unique_id=1771076 groups=["drill"]]
 script = ExtResource("1_vm0cf")
 
 [node name="Sketchfab_Scene" parent="." unique_id=117406260 instance=ExtResource("2_e80ml")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 1, 0)
+
+[node name="drillingsound" type="AudioStreamPlayer3D" parent="." unique_id=1113520381]
+stream = ExtResource("3_60uro")
+
+[node name="stopsound" type="AudioStreamPlayer3D" parent="." unique_id=1199852583]
+stream = ExtResource("4_nx8ti")
+
+[node name="placesound" type="AudioStreamPlayer3D" parent="." unique_id=558874183]
+stream = ExtResource("5_cljqy")
