@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b44p6q4yxn62w"]
+
+[ext_resource type="Script" uid="uid://coycmgnus8va7" path="res://scripts/player_hud.gd" id="1_mlvnn"]
+
+[node name="playerHUD" type="Node2D" unique_id=1891488524]
+script = ExtResource("1_mlvnn")
+
+[node name="oilcount" type="Label" parent="." unique_id=238459283]
+offset_left = 37.0
+offset_top = 28.0
+offset_right = 330.0
+offset_bottom = 60.0
+text = "OIL COUNTER"

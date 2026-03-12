@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 
+signal oil_changed(current, objective)
+
 #const SPEED = 4.0
 const SPEED = 40.0 # debug speed
 const JUMP_VELOCITY = 4.5
@@ -72,4 +74,5 @@ func _physics_process(delta: float) -> void:
 			current_oil += 1;
 	
 		print(current_chunk.oil_amount, "  ", current_oil)
+	oil_changed.emit(current_oil, 0)
 	move_and_slide()
