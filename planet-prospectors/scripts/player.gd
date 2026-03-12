@@ -17,6 +17,7 @@ var current_chunk
 var current_oil = 0
 var drilling = false
 var drill
+const OBJECTIVE = 5
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -81,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			# TODO: play drill too far sound / hint
 			pass
-	
+
 	if drilling:
 		if drill.chunk.oil_amount > 0:
 			drill.chunk.oil_amount -= 1;
@@ -97,5 +98,10 @@ func _physics_process(delta: float) -> void:
 	# print(current_chunk.oil_amount, "  ", current_oil)
 	oil_changed.emit(current_oil, 0)
 	
+	
+	if current_oil > OBJECTIVE && drilling && drill.chunk.oil_amount == 0:
+		drill.velocityY += 0.01
+		drill.velocityY *= 1.05
+		# TODO: add winstate
 	
 	move_and_slide()
