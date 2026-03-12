@@ -27,5 +27,5 @@ func _process(delta: float) -> void:
 	if chunk.oil_amount <= 0 && velocityR > 0:
 		velocityR /= 1.025
 	
-	rotation.y += velocityR
+	$drillmodel.rotation.y += velocityR
 	position.y += velocityY
