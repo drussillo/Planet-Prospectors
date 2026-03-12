@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	oil_changed.emit(current_oil, 0)
 	
 	
-	if current_oil > OBJECTIVE && drilling && drill.chunk.oil_amount == 0:
+	if current_oil >= OBJECTIVE && drilling && drill.chunk.oil_amount == 0:
 		drill.velocityY += 0.00001
 		drill.velocityY *= 1.05
 		# TODO: add winstate
