@@ -1,5 +1,7 @@
 extends Node3D
 
+var velocityY = 0
+
 var chunk
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +20,5 @@ func _process(delta: float) -> void:
 	if chunk.oil_amount > 0:
 		rotation.y += 20 * delta
 		# TODO: play drilling sound
+	
+	position.y += velocityY * delta
