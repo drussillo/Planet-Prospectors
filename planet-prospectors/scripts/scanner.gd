@@ -2,6 +2,7 @@ extends Node3D
 
 var velocityY = 0
 var velocityYdelta = 0.00025
+var playerchunk
 
 const TIMEOUT = 10
 
@@ -30,9 +31,6 @@ func _process(delta: float) -> void:
 	
 		if min_distance <= 0:
 			min_distance = 0
-			$scannermodel/screen.get_active_material(0).albedo_color = Color(0, 0.9, 0)
-		else:
-			$scannermodel/screen.get_active_material(0).albedo_color = Color(0, 0, 0)
 			
 		_update_distance_indicator(str(int(min_distance)))
 		if closest_chunk.oil_amount > 0:
@@ -46,5 +44,12 @@ func _process(delta: float) -> void:
 	var mat = $scannermodel/screen/timerindicator.get_active_material(0)
 	mat.set_shader_parameter("progress", 1.0/TIMEOUT * $scantimer.time_left)
 	print(1.0/TIMEOUT * $scantimer.time_left)
+	if playerchunk != null:
+		if playerchunk.oilchunk && playerchunk.oil_amount > 0:
+			$scannermodel/screen.get_active_material(0).albedo_color = Color(0, 0.9, 0)
+		elif playerchunk.oilchunk && playerchunk.oil_amount == 0:
+			$scannermodel/screen.get_active_material(0).albedo_color = Color(0.9, 0, 0)
+		else:
+			$scannermodel/screen.get_active_material(0).albedo_color = Color(0, 0, 0)
 	
 	position.y += velocityY
