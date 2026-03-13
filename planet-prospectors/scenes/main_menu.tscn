@@ -31,15 +31,16 @@ script = ExtResource("1_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=217164652]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_top = -352.0
+offset_right = 800.0
+offset_bottom = 800.0
 texture = SubResource("GradientTexture2D_ekxnf")
 expand_mode = 5
 stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=576816233]
 layout_mode = 0
-offset_right = 1152.0
+offset_right = 800.0
 offset_bottom = 324.0
 
 [node name="Title" type="Label" parent="CenterContainer" unique_id=381065200]
@@ -51,8 +52,8 @@ text = "Planet Prospectors"
 [node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1203167170]
 layout_mode = 0
 offset_top = 146.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 800.0
+offset_bottom = 450.0
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer2" unique_id=357322483]
 layout_mode = 2
