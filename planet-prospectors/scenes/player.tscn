@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://u2n20ou62y4e" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ddy4lwod8fyf" path="res://scripts/playeraim.gd" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://bosb4ew6hsy4d" path="res://scenes/scanner.tscn" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cb2vebk3evdwj" path="res://assets/sounds/sand_steps.wav" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -26,3 +27,6 @@ script = ExtResource("2_g2els")
 
 [node name="Scanner" parent="Head" unique_id=1623196957 instance=ExtResource("3_qhqgy")]
 transform = Transform3D(0.045, 0, 0, 0, 0.035127718, -0.028125497, 0, 0.028125497, 0.035127718, 0.2556881, 0.36507463, -0.43728054)
+
+[node name="footsteps" type="AudioStreamPlayer3D" parent="." unique_id=1821208159]
+stream = ExtResource("4_dqkch")
