@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://df37opyjx0fd4"]
+[gd_scene format=3 uid="uid://bosb4ew6hsy4d"]
 
 [ext_resource type="PackedScene" uid="uid://cnujo6o5p34m7" path="res://assets/objects/scifi_device.glb" id="1_b2b2l"]
 [ext_resource type="Script" uid="uid://raxr1a1ua26i" path="res://scripts/scanner.gd" id="1_i2roj"]
-[ext_resource type="Material" uid="uid://bcpr3l4h21w73" path="res://assets/misc/screenglass.tres" id="3_dopc1"]
+[ext_resource type="Material" path="res://assets/misc/screenglass.tres" id="3_dopc1"]
 [ext_resource type="FontFile" uid="uid://cig7en63x3xhk" path="res://assets/misc/SpeedyRegular-7BLoE.ttf" id="3_vaien"]
 [ext_resource type="Texture2D" uid="uid://up6vue7cjv8d" path="res://assets/misc/arrow.png" id="5_pal3f"]
-[ext_resource type="Material" uid="uid://6qsnns8538xb" path="res://assets/misc/progress.tres" id="5_r71kl"]
+[ext_resource type="Material" path="res://assets/misc/progress.tres" id="5_r71kl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i2roj"]
 
