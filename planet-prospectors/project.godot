@@ -19,8 +19,6 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
-<<<<<<< HEAD
-=======
 [filesystem]
 
 import/blender/enabled=false
@@ -31,10 +29,7 @@ import/blender/enabled=false
 oilchunks=""
 chunks=""
 drill=""
-<<<<<<< HEAD
-=======
 player=""
->>>>>>> 7890005 (Added oil scanner timer and everything)
 
 [input]
 
