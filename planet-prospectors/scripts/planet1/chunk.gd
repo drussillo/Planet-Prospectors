@@ -6,11 +6,20 @@ var chunk_height
 var mat
 var oilchunk
 var oil_amount:int = 0
+const mesh_list = [
+	# TODO: Fix meshes
+	#preload("res://assets/planet1/chunks/mountain2.res"),
+	#preload("res://assets/planet1/chunks/mountain3.res"),
+	preload("res://assets/planet1/chunks/mountain4.res"),
+	preload("res://assets/planet1/chunks/mtnTESTmesh.res")
+]
 
 func get_oil_amount() -> int:
 	return oil_amount
 
 func set_chunk(x, z, width, length, is_oilchunk) -> void:
+	$floor.mesh = mesh_list.pick_random()
+	$floor/StaticBody3D/CollisionShape3D.shape = $floor.mesh.create_trimesh_shape()
 	mat = $floor.get_surface_override_material(0).duplicate()
 	$floor.set_surface_override_material(0, mat)
 	chunk_width = width

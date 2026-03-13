@@ -14,7 +14,7 @@ script = ExtResource("1_2vvly")
 mesh = ExtResource("2_6tj4i")
 surface_material_override/0 = ExtResource("3_bgrpy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=277128656]
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=2146893746]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=1650632023]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=878001128]
 shape = SubResource("ConcavePolygonShape3D_6tj4i")
