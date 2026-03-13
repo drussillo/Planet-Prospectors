@@ -21,7 +21,6 @@ window/stretch/mode="viewport"
 
 [filesystem]
 
-import/blender/enabled=false
 chunks=""
 drill=""
 player=""
