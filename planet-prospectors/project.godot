@@ -15,13 +15,10 @@ run/main_scene="uid://gob4ayb4vr7s"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-<<<<<<< HEAD
 [display]
 
 window/stretch/mode="viewport"
 
-=======
->>>>>>> 3bcf1cacaadf9a0c52923345846910368d3a5714
 [filesystem]
 
 import/blender/enabled=false
