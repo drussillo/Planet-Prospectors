@@ -7,11 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cqipnvhuqnd87" path="res://assets/objects/freesound_community-drill_sound-77500_place.wav" id="5_cljqy"]
 [ext_resource type="PackedScene" uid="uid://d1ed3o25qaano" path="res://assets/objects/Goddard's_Rocket.glb" id="6_apcyi"]
 [ext_resource type="AudioStream" uid="uid://lb0e52sox7t0" path="res://assets/objects/jci21-rocket-launch-sfx-253937.mp3" id="7_ovkcx"]
-[ext_resource type="Material" uid="uid://bg07ar6b7kb3n" path="res://assets/objects/rustmaterial.tres" id="8_5qr7t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apcyi"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8cwd3"]
 
 [node name="Drill" type="StaticBody3D" unique_id=460046175 groups=["drill"]]
 script = ExtResource("1_vm0cf")
@@ -39,8 +36,3 @@ shape = SubResource("BoxShape3D_apcyi")
 stream = ExtResource("7_ovkcx")
 unit_size = 40.0
 max_distance = 1000.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=885023239]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2166183)
-mesh = SubResource("PlaneMesh_8cwd3")
-surface_material_override/0 = ExtResource("8_5qr7t")
