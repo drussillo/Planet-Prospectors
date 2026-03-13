@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://df37opyjx0fd4"]
+
+[ext_resource type="PackedScene" uid="uid://cnujo6o5p34m7" path="res://assets/objects/scifi_device.glb" id="1_b2b2l"]
+[ext_resource type="Script" uid="uid://raxr1a1ua26i" path="res://scripts/scanner.gd" id="1_i2roj"]
+[ext_resource type="Material" uid="uid://bcpr3l4h21w73" path="res://assets/misc/screenglass.tres" id="3_dopc1"]
+[ext_resource type="FontFile" uid="uid://cig7en63x3xhk" path="res://assets/misc/SpeedyRegular-7BLoE.ttf" id="3_vaien"]
+[ext_resource type="Texture2D" uid="uid://up6vue7cjv8d" path="res://assets/misc/arrow.png" id="5_pal3f"]
+[ext_resource type="Material" uid="uid://6qsnns8538xb" path="res://assets/misc/progress.tres" id="5_r71kl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2roj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pal3f"]
+
+[node name="Scanner" type="Node3D" unique_id=1623196957]
+script = ExtResource("1_i2roj")
+
+[node name="scannermodel" parent="." unique_id=513560754 instance=ExtResource("1_b2b2l")]
+
+[node name="screen" type="MeshInstance3D" parent="scannermodel" unique_id=410903079]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 0.655, 0, 0.629, -0.341)
+mesh = SubResource("PlaneMesh_i2roj")
+surface_material_override/0 = ExtResource("3_dopc1")
+
+[node name="distance_indicator" type="Label3D" parent="scannermodel/screen" unique_id=546745199]
+transform = Transform3D(1.5151515, 0, 0, 0, -4.371139e-08, 1, 0, -1.4285715, -6.244484e-08, 0, 0.100000024, 0.6793335)
+modulate = Color(1, 1, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "DIST."
+font = ExtResource("3_vaien")
+
+[node name="timerindicator" type="MeshInstance3D" parent="scannermodel/screen" unique_id=1189754017]
+transform = Transform3D(0.10999999, 0, 0, 0, 0.10999999, 0, 0, 0, 0.10999999, 0, 0.00999999, 0.8434342)
+mesh = SubResource("PlaneMesh_pal3f")
+surface_material_override/0 = ExtResource("5_r71kl")
+
+[node name="pivot" type="Node3D" parent="scannermodel/screen" unique_id=1282875229]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, -0.12899977)
+visible = false
+
+[node name="arrow" type="Sprite3D" parent="scannermodel/screen/pivot" unique_id=1926565926]
+transform = Transform3D(0.08, 0, 0, 0, -3.4969108e-09, 0.07999999, 0, -0.07999999, -3.4969112e-09, 0, 0.00999999, -0.4535138)
+texture = ExtResource("5_pal3f")
+
+[node name="screen2" type="MeshInstance3D" parent="scannermodel" unique_id=1823228573]
+transform = Transform3D(0.65, 0, 0, 0, 0.20249678, -0.07344622, 0, 0.9792829, 0.015187259, 0, 0.556676, 0.32904455)
+mesh = SubResource("PlaneMesh_i2roj")
+surface_material_override/0 = ExtResource("3_dopc1")
+
+[node name="scantimer" type="Timer" parent="." unique_id=1545972596]
+wait_time = 10.0
+one_shot = true
+autostart = true
