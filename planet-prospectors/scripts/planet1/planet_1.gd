@@ -8,6 +8,7 @@ const OILCHUNK_PERC = 5.0
 
 const PLANET_SIZE = 2 * CHUNK_BIG_SIZE * CHUNK_BIG_AMOUNT
 const CHUNK_SCENE = preload("res://scenes/planet1/chunk.tscn")
+#const CHUNK_SCENE = [preload("res://scenes/planet1/chunk2.tscn"),preload("res://scenes/planet1/chunk.tscn")]
 var rng = RandomNumberGenerator.new()
 var oilchunk_count = 0
 
@@ -39,6 +40,7 @@ func _generate_chunks(pos_x, pos_z, width, length) -> void:
 
 	if !vert_split && !hor_split || width < CHUNK_SMALL_SIZE || length < CHUNK_SMALL_SIZE:
 		var chunk_instance = CHUNK_SCENE.instantiate()
+		#var chunk_instance = (CHUNK_SCENE.pick_random()).instantiate()
 		var oilchunk:bool = randf() < (OILCHUNK_PERC / 100)
 		if oilchunk: oilchunk_count += 1
 		chunk_instance.set_chunk(pos_x, pos_z, width, length, oilchunk)

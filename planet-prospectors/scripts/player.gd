@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 		if is_on_floor():
+			$Sounds/walksound.play()
 			var distance = abs($Head.global_position.y - global_position.y - head_distance)
 			if distance > head_distance/12:
 				head_bob_speed *= -1

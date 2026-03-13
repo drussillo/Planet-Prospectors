@@ -15,10 +15,19 @@ run/main_scene="uid://c7nvrwodb08oj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 oilchunks=""
 chunks=""
+drill=""
 
 [input]
 

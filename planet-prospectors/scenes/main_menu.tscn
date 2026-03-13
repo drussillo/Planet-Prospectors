@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bfqlu7ng2ixf4"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" path="res://assets/misc/SpeedyRegular-7BLoE.ttf" id="2_ekxnf"]
+
+[sub_resource type="Gradient" id="Gradient_l6cm7"]
+offsets = PackedFloat32Array(0.14457831, 0.45783132, 0.686747, 0.9879518)
+colors = PackedColorArray(0, 0, 0, 1, 0.06855431, 0.039131917, 0.15425077, 1, 0.18249086, 0.06811694, 0.23943037, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ekxnf"]
+gradient = SubResource("Gradient_l6cm7")
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(3.272891e-06, 0, 0.74407476, 1, 0.24381357, 0.00072114303, 0.52414703, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqqt6"]
+gradient = SubResource("Gradient_ekxnf")
+width = 146
+height = 38
+
+[node name="MainMenu" type="Control" unique_id=798594521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=217164652]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_ekxnf")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=576816233]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 324.0
+
+[node name="Title" type="Label" parent="CenterContainer" unique_id=381065200]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 26
+text = "Planet Prospectors"
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1203167170]
+layout_mode = 0
+offset_top = 146.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer2" unique_id=357322483]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bqqt6")
+
+[node name="Button" type="Button" parent="CenterContainer2/TextureRect" unique_id=741562239]
+layout_mode = 0
+offset_right = 146.0
+offset_bottom = 38.0
+
+[node name="Label" type="Label" parent="CenterContainer2/TextureRect/Button" unique_id=136616747]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 9.0
+offset_right = 97.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
+text = "PLAY"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1794297334]
+
+[connection signal="pressed" from="CenterContainer2/TextureRect/Button" to="." method="_on_button_pressed"]
