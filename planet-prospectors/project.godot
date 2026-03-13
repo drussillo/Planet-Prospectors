@@ -22,11 +22,6 @@ window/stretch/mode="viewport"
 [filesystem]
 
 import/blender/enabled=false
-
->>>>>>> 7890005 (Added oil scanner timer and everything)
-[global_group]
-
-oilchunks=""
 chunks=""
 drill=""
 player=""
