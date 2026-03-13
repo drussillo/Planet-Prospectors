@@ -11,7 +11,11 @@ const mesh_list = [
 	#preload("res://assets/planet1/chunks/mountain2.res"),
 	#preload("res://assets/planet1/chunks/mountain3.res"),
 	preload("res://assets/planet1/chunks/mountain4.res"),
-	preload("res://assets/planet1/chunks/mtnTESTmesh.res")
+	preload("res://assets/planet1/chunks/mountain1.res"),
+	preload("res://assets/planet1/chunks/hole1.res"),
+	preload("res://assets/planet1/chunks/hole2.res"),
+	preload("res://assets/planet1/chunks/hole3.res"),
+	preload("res://assets/planet1/chunks/mountain3.res")
 ]
 
 func get_oil_amount() -> int:
