@@ -4,7 +4,7 @@ extends CharacterBody3D
 signal oil_changed(current, objective)
 
 #const SPEED = 4.0
-const SPEED = 40.0 # debug speed
+const SPEED = 10.0 # debug speed
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.001
 
@@ -54,7 +54,10 @@ func _physics_process(delta: float) -> void:
 			if distance > head_distance/12:
 				head_bob_speed *= -1
 			$Head.position.y += head_bob_speed
+			if !$footsteps.playing:
+				$footsteps.play()
 	else:
+		$footsteps.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		if is_on_floor():
