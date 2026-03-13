@@ -61,9 +61,9 @@ func _generate_chunks(pos_x, pos_z, width, length) -> void:
 func _process(delta: float) -> void:
 	for chunk in get_tree().get_nodes_in_group("chunks"):
 		#print(oilchunk.global_position, oilchunk.chunk_width, oilchunk.chunk_length)
-		if ($player.global_position.x > chunk.global_position.x - chunk.chunk_width &&
-			$player.global_position.x < chunk.global_position.x + chunk.chunk_width &&
-			$player.global_position.z > chunk.global_position.z - chunk.chunk_length &&
-			$player.global_position.z < chunk.global_position.z + chunk.chunk_length):
-			$player.current_chunk = chunk
+		if ($SubViewportContainer/SubViewport/player.global_position.x > chunk.global_position.x - chunk.chunk_width &&
+			$SubViewportContainer/SubViewport/player.global_position.x < chunk.global_position.x + chunk.chunk_width &&
+			$SubViewportContainer/SubViewport/player.global_position.z > chunk.global_position.z - chunk.chunk_length &&
+			$SubViewportContainer/SubViewport/player.global_position.z < chunk.global_position.z + chunk.chunk_length):
+			$SubViewportContainer/SubViewport/player.current_chunk = chunk
 	pass

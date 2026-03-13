@@ -36,8 +36,23 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=362877873]
 environment = SubResource("Environment_yvh5o")
 
-[node name="player" parent="." unique_id=1341974548 instance=ExtResource("3_5k6p0")]
-
 [node name="testcube" type="MeshInstance3D" parent="." unique_id=1988000088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5508404, -4.8931894)
 mesh = SubResource("BoxMesh_ujfxn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1209657713]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1530869348]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="player" parent="SubViewportContainer/SubViewport" unique_id=1341974548 instance=ExtResource("3_5k6p0")]
