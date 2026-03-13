@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://6qsnns8538xb"]
+
+[ext_resource type="Shader" uid="uid://csx8v3omcgxsv" path="res://shaders/progress.gdshader" id="1_1gsup"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1gsup")
+shader_parameter/progress = 0.0
