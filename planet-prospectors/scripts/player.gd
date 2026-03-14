@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		if is_on_floor():
-			$Head.position.y = global_position.y + head_distance
+			$Head.position.y = head_distance
 	
 	if Input.is_action_just_pressed("interact"):
 		if !drilling:
@@ -97,7 +97,6 @@ func _physics_process(delta: float) -> void:
 				drill.get_node("stopsound").play()
 				soundstopped = true
 			#drilling = false
-		print(drill.chunk.oil_amount, "  ", current_oil)
 
 	# give player location to scanner
 	$Head/Scanner.playerchunk = current_chunk
@@ -113,7 +112,6 @@ func _physics_process(delta: float) -> void:
 			drill.get_node("rocketsound").play()
 		# TODO: add winstate
 
-	print(current_chunk.oil_amount, "  ", current_oil)
 	oil_changed.emit(current_oil, OBJECTIVE)
-
+	
 	move_and_slide()
