@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://u2n20ou62y4e" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ddy4lwod8fyf" path="res://scripts/playeraim.gd" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://jrxvc48rijli" path="res://assets/audio/sand_steps.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://ca4rq5tmchqrr" path="res://assets/audio/Van Sandano - Antidote X (Royalty Free Music).mp3" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -27,3 +28,9 @@ script = ExtResource("2_g2els")
 
 [node name="walksound" type="AudioStreamPlayer" parent="Sounds" unique_id=1776945635]
 stream = ExtResource("3_qhqgy")
+
+[node name="BGM" type="AudioStreamPlayer" parent="Sounds" unique_id=1972577180]
+stream = ExtResource("4_dqkch")
+volume_db = -16.094
+autoplay = true
+bus = &"BGM"
